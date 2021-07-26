@@ -1,8 +1,8 @@
 package io.github.iltotore.iron.example
 
 import cats.effect._
-import org.http4s._, org.http4s.dsl.io._, org.http4s.implicits._
-import org.http4s.server._, org.http4s.blaze.server._
+import org.http4s.implicits._
+import org.http4s.blaze.server.BlazeServerBuilder
 import scala.concurrent.ExecutionContext
 
 import io.github.iltotore.iron._, constraint.{given, _}, string.constraint.{given, _}

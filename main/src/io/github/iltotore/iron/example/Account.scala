@@ -1,11 +1,12 @@
 package io.github.iltotore.iron.example
 
 import io.github.iltotore.iron._, constraint.{given, _}, string.constraint.{given, _}, catsSupport._
+import io.github.iltotore.iron.circe.given
+
 import cats.implicits._, cats.syntax.apply._
 
 import io.circe.{Decoder, Encoder}
 import io.circe.generic.semiauto._
-import io.github.iltotore.iron.circe.given
 
 case class Account(username: String, email: String, password: String)
 
@@ -26,6 +27,7 @@ object Account {
       email.toField("email").toValidatedNec,
       password.toField("password").toValidatedNec
   ).mapN(Account.apply)
+
 
   //Decoder/Encoder for RefinedFieldNec[Account]
   inline given Decoder[RefinedFieldNec[Account]] =
