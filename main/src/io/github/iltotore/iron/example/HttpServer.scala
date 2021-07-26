@@ -8,7 +8,7 @@ import io.circe.syntax._, io.circe.disjunctionCodecs._, io.circe.Encoder._, io.c
 
 import io.github.iltotore.iron.constraint.IllegalValueError
 import io.github.iltotore.iron.catsSupport._
-import io.github.iltotore.iron.circe.{given}
+import io.github.iltotore.iron.circe.given
 
 object HttpServer {
 

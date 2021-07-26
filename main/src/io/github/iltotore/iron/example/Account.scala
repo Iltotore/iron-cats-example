@@ -5,7 +5,7 @@ import cats.implicits._, cats.syntax.apply._
 
 import io.circe.{Decoder, Encoder}
 import io.circe.generic.semiauto._
-import io.github.iltotore.iron.circe.{given}
+import io.github.iltotore.iron.circe.given
 
 case class Account(username: String, email: String, password: String)
 
@@ -27,6 +27,7 @@ object Account {
       password.toField("password").toValidatedNec
   ).mapN(Account.apply)
 
+  //Decoder/Encoder for RefinedFieldNec[Account]
   inline given Decoder[RefinedFieldNec[Account]] =
     Decoder.forProduct3("username", "email", "password")(createAccount)
 

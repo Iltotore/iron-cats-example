@@ -9,13 +9,12 @@ import io.github.iltotore.iron._, constraint.{given, _}, string.constraint.{give
 
 object Main extends IOApp {
 
-  override def run(args: List[String]): IO[ExitCode] = {
-    BlazeServerBuilder[IO](ExecutionContext.global)
+  override def run(args: List[String]): IO[ExitCode] = BlazeServerBuilder[IO](ExecutionContext.global)
     .bindHttp(8080, "localhost")
     .withHttpApp(HttpServer.service.orNotFound)
     .serve
     .compile
     .drain
     .as(ExitCode.Success)
-  }
+
 }
