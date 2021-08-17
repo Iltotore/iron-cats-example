@@ -12,8 +12,6 @@ case class Account(username: String, email: String, password: String)
 
 object Account {
 
-  //Here, the Match[String] constraint isn't natively implemented in Iron and is only used as example.
-
   //Type aliases are not mandatory. They can be used for readability purpose.
   type Username = String ==> Alphanumeric
   type Email = String ==> (Match["^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$"] DescribedAs "Value should be an email")
